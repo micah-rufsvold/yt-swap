@@ -1,0 +1,7 @@
+get youtube url input
+get quality input
+get image input
+X download youtube file
+x cut video to length
+run face swap
+return video

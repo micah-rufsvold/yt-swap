@@ -1,0 +1,38 @@
+{% set name = "imageio_ffmpeg" %}
+{% set version = "0.4.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: f826260a3207b872f1a4ba87ec0c8e02c00afba4fd03348a59049bdd8215841e
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - imageio_ffmpeg
+
+about:
+  home: "https://github.com/imageio/imageio-ffmpeg"
+  license: BSD
+  license_family: BSD
+  license_file: 
+  summary: "FFMPEG wrapper for Python"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here

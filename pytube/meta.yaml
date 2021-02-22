@@ -1,0 +1,47 @@
+{% set name = "pytube" %}
+{% set version = "10.4.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: e3a496b049e03a9f2809c28bf562022b0efc9e926f0ec0dd982a083b5b27e344
+
+build:
+  number: 0
+  entry_points:
+    - pytube = pytube.cli:main
+    - pytube3 = pytube.cli:main
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+    - typing_extensions
+  run:
+    - python
+    - typing_extensions
+
+test:
+  imports:
+    - pytube
+    - pytube.contrib
+  commands:
+    - pytube --help
+    - pytube3 --help
+
+about:
+  home: "https://github.com/nficano/pytube"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Python 3 library for downloading YouTube Videos."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
